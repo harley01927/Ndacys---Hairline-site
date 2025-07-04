@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booking – Ndacys Hairline</title>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #ffe0b3, #fff1d6);
+      min-height: 100vh;
+      color: #4a2e00;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px 40px;
+    }
+
+    /* Header with nav and cartoon */
+    header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-container img {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+    }
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #b35400;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #b35400;
+      padding: 6px 12px;
+      border-radius: 5px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #ffb566;
+      color: white;
+    }
+
+    /* Container for form */
+    .container {
+      max-width: 700px;
+      margin: 140px auto 40px;
+      padding: 30px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      position: relative;
+      z-index: 10;
+      width: 100%;
+    }
+    .container h2 {
+      text-align: center;
+      color: #b35400;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    label {
+      font-weight: 600;
+    }
+    input, select, textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      background: #ff8c42;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #d16b00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #8d5c2b;
+      margin-top: 40px;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    /* Bubbles animation */
+    .bubbles-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: floatUp ease-in-out infinite;
+    }
+    .bubble:nth-child(1) {
+      width: 35px; height: 35px;
+      background: #ffcc80;
+      left: 15%;
+      bottom: -60px;
+      animation-duration: 9s;
+    }
+    .bubble:nth-child(2) {
+      width: 45px; height: 45px;
+      background: #ffe0b2;
+      left: 40%;
+      bottom: -50px;
+      animation-duration: 12s;
+      animation-delay: 1s;
+    }
+    .bubble:nth-child(3) {
+      width: 25px; height: 25px;
+      background: #ffb74d;
+      left: 70%;
+      bottom: -40px;
+      animation-duration: 10s;
+      animation-delay: 2s;
+    }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.2;
+      }
+      50% {
+        transform: translateY(-150px) scale(1.1);
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-300px) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* Thank you message styling */
+    #thankyou {
+      display: none;
+      max-width: 700px;
+      margin: 140px auto 40px;
+      background: linear-gradient(to right, #fff0e5, #ffe6cc);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 40px 30px;
+      text-align: center;
+      color: #b35400;
+      font-family: 'Segoe UI', sans-serif;
+      z-index: 10;
+    }
+    #thankyou h1 {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+    }
+    #thankyou p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    #thankyou a {
+      background-color: #25D366;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1.2em;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    #thankyou a:hover {
+      background-color: #128C7E;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .container, #thankyou {
+        margin: 160px 10px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with cartoon dancing character and navigation -->
+  <header>
+    <div class="logo-container">
+      <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="Dancing cartoon" />
+      <div class="logo">Ndacys Hairline</div>
+    </div>
+    <nav>
+      <a href="home2.html">Home</a>
+      <a href="services2.html">Services</a>
+      <a href="booking2.html" class="active">Booking</a>
+      <a href="gallery2.html">Gallery</a>
+      <a href="trending2.html">Trending</a>
+      <a href="about2.html">About</a>
+      <a href="contact2.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Animated floating bubbles -->
+  <div class="bubbles-container">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <!-- Booking Form container -->
+  <div class="container" id="booking-form-container">
+    <h2>Book Your Hair Appointment</h2>
+    <form id="bookingForm" action="https://formspree.io/f/xzzgwnqa" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email address" required />
+
+      <label for="whatsapp">WhatsApp Number</label>
+      <input type="tel" id="whatsapp" name="whatsapp" placeholder="+237 6XX XXX XXX" required />
+
+      <label for="service">Service</label>
+      <select id="service" name="service" required>
+        <option value="">Choose a service</option>
+        <option value="Braids">Braids</option>
+        <option value="Wig Revamping">Wig Revamping</option>
+        <option value="Installation">Installation</option>
+        <option value="Hair Coloring">Hair Coloring</option>
+      </select>
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="message">Additional Notes</label>
+      <textarea id="message" name="message" rows="4" placeholder="Any preferences or requests?"></textarea>
+
+      <button type="submit">Submit Booking</button>
+    </form>
+  </div>
+
+  <!-- Thank You message container -->
+  <div id="thankyou">
+    <h1>Thank you for booking! 💇🏽‍♀️</h1>
+    <p>Let’s confirm your appointment on WhatsApp.</p>
+    <a href="https://wa.me/237673709633" target="_blank" rel="noopener noreferrer">Message Us on WhatsApp</a>
+  </div>
+
+  <footer>
+    &copy; 2025 Ndacys Hairline | Your crown by Ndacy
+  </footer>
+
+  <script>
+    // Handle form submission with AJAX to prevent reload
+    const form = document.getElementById('bookingForm');
+    const formContainer = document.getElementById('booking-form-container');
+    const thankyou = document.getElementById('thankyou');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      }).then(response => {
+        if (response.ok) {
+          // Hide form and show thank you message
+          formContainer.style.display = 'none';
+          thankyou.style.display = 'block';
+          form.reset();
+        } else {
+          alert("Oops! There was a problem submitting your form.");
+        }
+      }).catch(error => {
+        alert("Oops! There was a problem submitting your form.");
+      });
+    });
+  </script>
+</body>
+</html>

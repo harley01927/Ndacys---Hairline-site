@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trending Styles – Ndacys Hairline</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb, #fcb69f);
+      animation: rainbowShift 30s ease infinite;
+      color: #222;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes rainbowShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(5px);
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .bubble {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: floatUp 15s infinite ease-in-out;
+    }
+
+    @keyframes floatUp {
+      0% { bottom: -100px; opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { bottom: 110%; opacity: 0; }
+    }
+
+    .bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bubble:nth-child(1) { width: 60px; height: 60px; left: 5%; animation-delay: 0s; }
+    .bubble:nth-child(2) { width: 40px; height: 40px; left: 20%; animation-delay: 3s; }
+    .bubble:nth-child(3) { width: 55px; height: 55px; left: 35%; animation-delay: 5s; }
+    .bubble:nth-child(4) { width: 30px; height: 30px; left: 50%; animation-delay: 2s; }
+    .bubble:nth-child(5) { width: 50px; height: 50px; left: 65%; animation-delay: 4s; }
+    .bubble:nth-child(6) { width: 70px; height: 70px; left: 80%; animation-delay: 6s; }
+
+    .grid {
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .box {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+    }
+
+    @media(max-width: 768px) {
+      header {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <header>🔥 Trending Styles – Ndacys Hairline</header>
+
+  <div class="grid">
+    <!-- Replace these with actual image paths -->
+    <div class="box"><img src="../Documents/images/img 2.jpg" alt="Style 1"></div>
+    <div class="box"><img src="../Documents/images/img 1.jpg" alt="Style 2"></div>
+    <div class="box"><img src="../Documents/images/img 3.jpg" alt="Style 3"></div>
+    <div class="box"><img src="../Documents/images/IMG-20250618-WA0067.jpg" alt="Style 4"></div>
+    <div class="box"><img src="../Documents/images/img 5.jpg" alt="Style 5"></div>
+    <div class="box"><img src="../Documents/images/img 6.jpg" alt="Style 6"></div>
+    <div class="box"><img src="../Documents/images/img 7.jpg" alt="Style 7"></div>
+    <div class="box"><img src="../Documents/images/img 8.jpg" alt="Style 8"></div>
+    <div class="box"><img src="../Documents/images/img 9.jpg" alt="Style 9"></div>
+    <div class="box"><img src="../Documents/images/img 10.jpg" alt="Style 10"></div>
+    <div class="box"><img src="../Documents/images/img 11.jpg" alt="Style 11"></div>
+    <div class="box"><img src="../Documents/images/img 12.jpg" alt="Style 12"></div>
+    <div class="box"><img src="../Documents/images/img 14.jpg" alt="Style 13"></div>
+    <div class="box"><img src="../Documents/images/img 15.jpg" alt="Style 14"></div>
+    <div class="box"><img src="../Documents/images/img 16.jpg" alt="Style 15"></div>
+    <div class="box"><img src="images/style16.jpg" alt="Style 16"></div>
+    <div class="box"><img src="images/style17.jpg" alt="Style 17"></div>
+    <div class="box"><img src="images/style18.jpg" alt="Style 18"></div>
+    <div class="box"><img src="images/style19.jpg" alt="Style 19"></div>
+    <div class="box"><img src="images/style20.jpg" alt="Style 20"></div>
+  </div>
+
+</body>
+</html>

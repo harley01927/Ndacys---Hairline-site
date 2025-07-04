@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ndacys Hairline - Home</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #d1e7ff 60%, #ffffff 40%);
+    overflow-x: hidden;
+    color: #3a3a3a;
+  }
+
+  header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0; left: 0;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #264d7b;
+    user-select: none;
+  }
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+  nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #264d7b;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+  }
+  nav a:hover, nav a.active {
+    background-color: #2a75bb;
+    color: white;
+  }
+
+  main {
+    padding-top: 100px;
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    text-align: center;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: #1b3a66;
+    letter-spacing: 3px;
+  }
+  p.subtitle {
+    font-size: 1.3rem;
+    color: #3a5068;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+  }
+  p.intro {
+    font-size: 1.1rem;
+    color: #4a5d7a;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  /* 3D style image container */
+  .image-3d {
+    width: 320px;
+    height: 320px;
+    margin: 30px auto 0;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #aac9f7, #557bc0);
+    box-shadow:
+      12px 12px 24px #496ea5,
+      -12px -12px 24px #c2d7ff;
+    perspective: 900px;
+    transition: transform 0.4s ease;
+  }
+  .image-3d:hover {
+    transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+    box-shadow:
+      18px 18px 30px #3d5a8a,
+      -18px -18px 30px #dbe7ff;
+  }
+
+  /* Floating colorful bubbles */
+  .bubbles-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+  }
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: floatUp ease-in-out infinite;
+  }
+
+  .bubble:nth-child(1) {
+    width: 45px; height: 45px;
+    background: #69a3ff;
+    left: 12%; bottom: -60px;
+    animation-duration: 10s;
+    animation-delay: 0s;
+  }
+  .bubble:nth-child(2) {
+    width: 35px; height: 35px;
+    background: #a1c9ff;
+    left: 30%; bottom: -70px;
+    animation-duration: 13s;
+    animation-delay: 3s;
+  }
+  .bubble:nth-child(3) {
+    width: 50px; height: 50px;
+    background: #4c77be;
+    left: 47%; bottom: -50px;
+    animation-duration: 11s;
+    animation-delay: 2s;
+  }
+  .bubble:nth-child(4) {
+    width: 25px; height: 25px;
+    background: #92b7ff;
+    left: 65%; bottom: -65px;
+    animation-duration: 9s;
+    animation-delay: 4s;
+  }
+  .bubble:nth-child(5) {
+    width: 40px; height: 40px;
+    background: #74a3e5;
+    left: 85%; bottom: -55px;
+    animation-duration: 14s;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.15;
+    }
+    50% {
+      opacity: 0.3;
+      transform: translateY(-120px) scale(1.05);
+    }
+    100% {
+      transform: translateY(-250px) scale(1);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 650px) {
+    h1 {
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+    }
+    p.subtitle {
+      font-size: 1.1rem;
+      max-width: 90%;
+    }
+    p.intro {
+      font-size: 1rem;
+      max-width: 90%;
+    }
+    .image-3d {
+      width: 260px;
+      height: 260px;
+      border-radius: 20px;
+    }
+    nav {
+      gap: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" title="Ndacys Hairline">Ndacys Hairline</div>
+  <nav>
+    <a href="home2.html" class="active">Home</a>
+    <a href="services2.html">Services</a>
+    <a href="booking2.html">Booking</a>
+    <a href="gallery2.html">Gallery</a>
+    <a href="trending2.html">Trending</a>
+    <a href="about2.html">About</a>
+    <a href="contact2.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>WELCOME TO NDACYS HAIRLINE</h1>
+  <p class="subtitle">Where style meets excellence — discover your perfect look with us.</p>
+  <p class="intro">
+    At Ndacys Hairline, we specialize in creating stunning hair transformations that boost confidence and redefine beauty. From expert installations and braids to custom wig revamps and vibrant coloring, our passion is to make you shine every day.
+  </p>
+
+  <div class="image-3d" aria-label="3D style decorative image placeholder">
+    <div class="image-3d">
+  <img src="../Documents/images/img 8.jpg" alt="Your 3D styled image" style="width:100%; height:100%; border-radius:25px; object-fit: cover;" />
+</div>
+
+    <!-- Replace this background with your image or put an <img> here -->
+  </div>
+</main>
+
+<div class="bubbles-container" aria-hidden="true">
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+</div>
+
+</body>
+</html>
